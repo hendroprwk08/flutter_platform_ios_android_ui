@@ -1,6 +1,6 @@
 {
-    "name": "halo_patform_cupertino_material",
-    "short_name": "halo_patform_cupertino_material",
+    "name": "flutter_platform_ios_android_ui",
+    "short_name": "flutter_platform_ios_android_ui",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
