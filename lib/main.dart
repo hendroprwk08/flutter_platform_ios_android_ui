@@ -37,17 +37,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: Platform.isIOS
             ? CupertinoNavigationBar(
-                middle: Text(widget.title),
+                backgroundColor: Colors.cyan,
+                middle: Text(widget.title, style: TextStyle(color: Colors.white),),
               )
             : AppBar(
                 backgroundColor: Colors.cyan,
+                centerTitle: true,
                 title: Text(
                   widget.title,
                   style: const TextStyle(color: Colors.white),
                 ),
               ),
         body: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               Platform.isIOS
@@ -55,12 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       placeholder: 'nama Lengkap',
                       placeholderStyle:
                           const TextStyle(color: CupertinoColors.inactiveGray),
-                      prefix: const Icon(CupertinoIcons.person),
-                      prefixMode: OverlayVisibilityMode.always,
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      onChanged: (value) => {
-                        nama = value
-                      },
+                      prefix: const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(CupertinoIcons.person),
+                      ),
+                      padding: const EdgeInsets.all(15),
+                      onChanged: (value) => {nama = value},
                     )
                   : TextFormField(
                       decoration: const InputDecoration(
@@ -68,9 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         hintText: 'Siapa namamu?',
                         labelText: 'Nama Lengkap',
                       ),
-                      onChanged: (value) => {
-                        nama = value
-                      },
+                      onChanged: (value) => {nama = value},
                     ),
               const SizedBox(height: 20.0),
               Platform.isIOS
@@ -113,8 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             );
-          }
-      );
+          });
     } else {
       showDialog(
         context: context,
